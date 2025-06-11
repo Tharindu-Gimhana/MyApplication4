@@ -1,0 +1,6 @@
+<!-- res/drawable/rounded_dialog_button_background.xml -->
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#007BFF" /> <!-- Blue background for the OK button -->
+    <corners android:radius="24dp" /> <!-- Rounded corners for the button -->
+</shape>

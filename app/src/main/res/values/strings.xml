@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">FOT News Corner</string>
+    <string name="app_logo_description">FOT News Corner Logo</string>
+
+    <string name="welcome_message">Welcome !</string>
+
+    <string name="username_hint">User Name</string>
+    <string name="password_hint">Password</string>
+    <string name="confirm_password_hint">Confirm Password</string>
+    <string name="Email_hint">Email</string>
+
+
+    <string name="login_button_text">Login</string>
+    <string name="signup_button_text">Sign up</string>
+
+
+    <string name="forgot_password_text">Forgot password?</string>
+    <string name="already_have_account_login">Already have an account? Sign in</string>
+
+
+    <string name="register_text">Don\'t have an account? Register</string>
+
+</resources>

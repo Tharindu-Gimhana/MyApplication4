@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="8dp"
+    app:cardBackgroundColor="@android:color/white"
+    android:layout_marginHorizontal="32dp"
+    android:layout_gravity="center">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Dialog Title -->
+        <TextView
+            android:id="@+id/dialogTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit your details"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="24dp" />
+
+        <!-- User Name Input -->
+        <EditText
+            android:id="@+id/editUserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="User name : Sayuru hasaral"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:background="@drawable/popup_background"
+            android:layout_marginBottom="16dp"
+            android:singleLine="true"
+            android:ellipsize="end"
+            tools:ignore="Autofill,LabelFor,TextFields" />
+
+        <!-- Email Input -->
+        <EditText
+            android:id="@+id/editEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email. : sayuru809@hotmail.com"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:background="@drawable/popup_background"
+            android:layout_marginBottom="24dp"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:inputType="textEmailAddress"
+            tools:ignore="Autofill,LabelFor" />
+
+        <!-- OK and Cancel Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end">
+
+            <Button
+                android:id="@+id/btnCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cancel"
+                android:textColor="#007BFF"
+                android:background="@android:color/transparent"
+                android:paddingHorizontal="16dp"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/btnOK"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OK"
+                android:textColor="@android:color/black"
+                android:background="@drawable/popup_background"
+                android:paddingHorizontal="16dp"
+                style="?android:attr/buttonBarButtonStyle" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
