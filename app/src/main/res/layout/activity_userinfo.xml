@@ -67,6 +67,7 @@
 
             <!-- User Name -->
             <TextView
+                android:id="@+id/username_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="User name : Sayuru hasaral"
@@ -77,6 +78,7 @@
 
             <!-- Email -->
             <TextView
+                android:id="@+id/email_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Email. : sayuru809@hotmail.com"
@@ -105,24 +107,26 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Sign Out Button -->
+
+    <!-- Home Button -->
     <Button
         android:id="@+id/signOutButton"
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:layout_marginStart="40dp"
-        android:layout_marginEnd="40dp"
         android:layout_marginTop="24dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/home_btn"
+        android:foreground="?attr/selectableItemBackground"
         android:text="Sign out"
         android:textColor="@android:color/white"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:background="@drawable/home_btn"
-        android:foreground="?attr/selectableItemBackground"
-        app:layout_constraintTop_toBottomOf="@id/editInfoButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/editInfoButton" />
 
-    <!-- Home Button -->
     <Button
         android:id="@+id/homeButton"
         android:layout_width="match_parent"
