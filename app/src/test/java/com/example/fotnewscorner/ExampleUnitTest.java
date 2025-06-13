@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.fotnewscorner;
 
 import org.junit.Test;
 
