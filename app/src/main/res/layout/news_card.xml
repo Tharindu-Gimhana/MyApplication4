@@ -15,13 +15,10 @@
         android:paddingBottom="16dp">
 
         <!-- News Image (e.g., event poster) -->
-
-        <!-- News Headline -->
-
         <ImageView
             android:id="@+id/newsImage"
-            android:layout_width="386dp"
-            android:layout_height="403dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -30,8 +27,9 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
             tools:ignore="ContentDescription"
-            tools:src="@drawable/placeholder_news_image" />
+             />
 
+        <!-- News Headline -->
         <TextView
             android:id="@+id/newsHeadline"
             android:layout_width="0dp"
