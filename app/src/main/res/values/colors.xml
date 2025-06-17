@@ -6,4 +6,7 @@
     <color name="inactive_tab_color">#808080</color>
     <!-- You can define an active_tab_color if you plan to dynamically highlight a tab in Java/Kotlin -->
     <!-- <color name="active_tab_color">#673AB7</color> -->
+
+    <color name="highlight_color">#D0F0FF</color> <!-- Light blue highlight -->
+
 </resources>
