@@ -63,5 +63,31 @@ dependencies {
 // Kotlin Extensions and Coroutines support for Room (only needed if using Kotlin extensions in Java, otherwise can be omitted)
     implementation(libs.room.ktx)
 
+    //newly added Glide dependencies
+    implementation(libs.glide)
+    annotationProcessor(libs.compiler)
+
+    // Firebase Realtime Database
+    implementation("com.google.firebase:firebase-database:20.3.1") // Check for the latest version
+
+    // RecyclerView
+    implementation("androidx.recyclerview:recyclerview:1.3.2") // Check for the latest version
+
+    // CardView
+    implementation ("androidx.cardview:cardview:1.0.0") // Check for the latest version
+
+    // Glide for image loading
+    implementation ("com.github.bumptech.glide:glide:4.16.0") // Check for the latest version
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.16.0")
+
+    // If you haven't explicitly added it, ConstraintLayout
+    implementation ("androidx.constraintlayout:constraintlayout:2.1.4") // Check for the latest version
+
+    // Required for EdgeToEdge in AppCompatActivity
+    implementation ("androidx.activity:activity:1.9.0")
+    implementation ("androidx.core:core-ktx:1.13.1")
+    implementation ("androidx.appcompat:appcompat:1.6.1")// Or a newer version if av
+
+
 
 }
