@@ -47,7 +47,7 @@ public class UserInfoActivity extends AppCompatActivity {
             String uid = currentUser.getUid();
             mDatabase = FirebaseDatabase.getInstance().getReference("Users").child(uid);
 
-            // ✅ Get user data and display
+            //  Get user data and display
             mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot snapshot) {
@@ -130,7 +130,7 @@ public class UserInfoActivity extends AppCompatActivity {
                 return;
             }
 
-            // ✅ Update Realtime Database
+            //  Update Realtime Database
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             if (user != null) {
                 String uid = user.getUid();

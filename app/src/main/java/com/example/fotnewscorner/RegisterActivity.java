@@ -71,7 +71,7 @@ public class RegisterActivity extends AppCompatActivity {
                             if (user != null) {
                                 String uid = user.getUid();
 
-                                // ✅ Realtime DB Save
+                                //  Realtime DB Save
                                 User userModel = new User(username, email);
                                 mDatabase.child(uid).setValue(userModel)
                                         .addOnCompleteListener(dbTask -> {
@@ -118,7 +118,7 @@ public class RegisterActivity extends AppCompatActivity {
         }
     }
 
-    // ✅ User model for Firebase
+    //  User model for Firebase
     public static class User {
         public String username;
         public String email;
