@@ -1,13 +1,6 @@
 package com.example.fotnewscorner;
 
-
-import com.example.fotnewscorner.UserInfoActivity;
-
-
-//newly add
 import android.content.Intent;
-
-
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -15,14 +8,12 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import java.util.ArrayList;
+import androidx.fragment.app.Fragment; // Import Fragment
+import androidx.fragment.app.FragmentManager; // Import FragmentManager
+import androidx.fragment.app.FragmentTransaction; // Import FragmentTransaction
 
 public class MainActivity extends AppCompatActivity {
 
-    private RecyclerView newsRecyclerView;
     private LinearLayout tabDevInfo, tabSports, tabAcademics, tabEvents;
     private EditText searchBar;
     private ImageView profileIcon, logo;
@@ -32,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        newsRecyclerView = findViewById(R.id.newsRecyclerView);
+        // Initialize UI components
         tabDevInfo = findViewById(R.id.tabDevInfo);
         tabSports = findViewById(R.id.tabSports);
         tabAcademics = findViewById(R.id.tabAcademics);
@@ -41,45 +32,48 @@ public class MainActivity extends AppCompatActivity {
         profileIcon = findViewById(R.id.profileIcon);
         logo = findViewById(R.id.logo);
 
+        // Set up click listener for the profile icon to navigate to UserInfoActivity
         profileIcon.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, com.example.fotnewscorner.UserInfoActivity.class);
             startActivity(intent);
         });
 
-        logo = findViewById(R.id.logo);
-
-        newsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        // Existing simple news list (only headlines)
-        ArrayList<String> existingNewsTitles = new ArrayList<>();
-        existingNewsTitles.add("AI beats chess world record");
-        existingNewsTitles.add("Sri Lanka to host Tech Expo 2025");
-        existingNewsTitles.add("University Rankings 2025 released");
-        existingNewsTitles.add("NASA confirms Mars rover signal");
-
-        // Convert simple headlines list to NewsItem list with placeholders for other fields
-        ArrayList<com.example.fotnewscorner.NewsAdapter.NewsItem> newsItems = new ArrayList<>();
-        for (String title : existingNewsTitles) {
-            newsItems.add(new com.example.fotnewscorner.NewsAdapter.NewsItem(
-                    R.drawable.placeholder_news_image, // Placeholder image
-                    title,                             // headline
-                    "Details not available.",          // placeholder body text
-                    "Unknown time"                    // placeholder published time
-            ));
+        // --- Fragment Handling ---
+        // Set the default fragment to SportsFragment when the app starts
+        if (savedInstanceState == null) {
+            replaceFragment(new fragment_sport());
+            // Optionally, you might want to highlight the Sports tab as selected here
+            // e.g., tabSports.setBackgroundColor(getColor(R.color.selected_tab_color));
         }
 
-        com.example.fotnewscorner.NewsAdapter adapter = new com.example.fotnewscorner.NewsAdapter(newsItems);
-        newsRecyclerView.setAdapter(adapter);
-
+        // Set up click listeners for the bottom navigation tabs to switch fragments
         tabDevInfo.setOnClickListener(v -> {
+            // DevInfoActivity is assumed to be a separate activity, not a fragment
             Intent intent = new Intent(MainActivity.this, DevInfoActivity.class);
             startActivity(intent);
         });
 
-        tabSports.setOnClickListener(v -> Toast.makeText(this, "Sports Clicked", Toast.LENGTH_SHORT).show());
-        tabAcademics.setOnClickListener(v -> Toast.makeText(this, "Academics Clicked", Toast.LENGTH_SHORT).show());
-        tabEvents.setOnClickListener(v -> Toast.makeText(this, "Events Clicked", Toast.LENGTH_SHORT).show());
+        // Replace the fragment in the container when Sports tab is clicked
+        tabSports.setOnClickListener(v -> replaceFragment(new fragment_sport()));
 
-       searchBar.setOnClickListener(v -> Toast.makeText(this, "Search tapped", Toast.LENGTH_SHORT).show());
+        // Replace the fragment in the container when Academics tab is clicked
+        tabAcademics.setOnClickListener(v -> replaceFragment(new fragment_academic()));
+
+        // Replace the fragment in the container when Events tab is clicked
+        tabEvents.setOnClickListener(v -> replaceFragment(new fragment_event()));
+
+        // Set up click listener for the search bar (currently just shows a Toast)
+        searchBar.setOnClickListener(v -> Toast.makeText(this, "Search tapped", Toast.LENGTH_SHORT).show());
+    }
+
+    /**
+     * Replaces the current fragment in the fragment_container with a new one.
+     * @param fragment The new fragment to display.
+     */
+    private void replaceFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, fragment);
+        fragmentTransaction.commit();
     }
 }
